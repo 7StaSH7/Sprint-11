@@ -1,0 +1,5 @@
+.popup-edit__button.popup__button_active {
+    background: black;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}

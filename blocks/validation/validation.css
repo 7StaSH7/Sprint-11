@@ -1,0 +1,14 @@
+.error {
+    color: red;
+    display: none;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+    margin-top: 4px;
+}
+
+
+
+.popup__input:invalid + .error {
+    display: block;
+}
