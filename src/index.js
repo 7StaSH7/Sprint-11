@@ -1,3 +1,5 @@
+import './pages/index.css'
+
 (function () {
   const config = {
     url: 'https://praktikum.tk/cohort11',
@@ -11,7 +13,7 @@
   const formAvatar = document.forms.avatar;
   const api = new Api(config);
   const { avatar } = formAvatar.elements;
-  const { title, link } = formNew.elements; 
+  const { title, link } = formNew.elements;
   const { name, job } = formEdit.elements;
   const addButton = document.querySelector(".user-info__button");
   const addPlaceButton = document.querySelector(".popup__button");
@@ -127,7 +129,7 @@
   formEdit.addEventListener("submit", saveNewInformation);
 
   document.addEventListener("keydown", function (event) {
-    popupCard.closeEsc(event); 
+    popupCard.closeEsc(event);
     popupEdit.closeEsc(event);
     popupImage.closeEsc(event);
     popupAvatar.closeEsc(event);
