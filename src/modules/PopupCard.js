@@ -1,4 +1,4 @@
-import { Popup } from './Popup';
+import { Popup } from './Popup'
 export class PopupCard extends Popup {
   constructor(popupElement, button, title, link, cardValidator) {
     super(popupElement, button);

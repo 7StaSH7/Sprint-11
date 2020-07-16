@@ -1,13 +1,13 @@
 import './style.css';
-import { Api } from './Api';
-import { Card } from './Card';
-import { CardList } from './CardList'
-import { FormValidator } from './FormValidator';
-import { PopupEdit } from './PopupEdit';
-import { PopupAvatar } from './PopupAvatar';
-import { PopupCard } from './PopupCard';
-import { PopupImage } from './PopupImage';
-import { UserInfo } from './UserInfo';
+import { Api } from './modules/Api';
+import { Card } from './modules/Card';
+import { CardList } from './modules/CardList'
+import { FormValidator } from './modules/FormValidator';
+import { PopupEdit } from './modules/PopupEdit';
+import { PopupAvatar } from './modules/PopupAvatar';
+import { PopupCard } from './modules/PopupCard';
+import { PopupImage } from './modules/PopupImage';
+import { UserInfo } from './modules/UserInfo';
 
 (function () {
   const config = {
