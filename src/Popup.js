@@ -1,4 +1,4 @@
-class Popup {
+export class Popup {
 
   constructor(popupElement, button) {
     this.popupElement = popupElement;
@@ -15,8 +15,8 @@ class Popup {
 
   closeEsc(event) {
     if (event.key === "Escape") {
-      if (this.popupElement.classList.contains("popup_is-opened")) 
-        this.close();  
+      if (this.popupElement.classList.contains("popup_is-opened"))
+        this.close();
     }
   }
 }

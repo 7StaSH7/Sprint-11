@@ -1,4 +1,13 @@
-import './pages/index.css'
+import './style.css';
+import { Api } from './Api';
+import { Card } from './Card';
+import { CardList } from './CardList'
+import { FormValidator } from './FormValidator';
+import { PopupEdit } from './PopupEdit';
+import { PopupAvatar } from './PopupAvatar';
+import { PopupCard } from './PopupCard';
+import { PopupImage } from './PopupImage';
+import { UserInfo } from './UserInfo';
 
 (function () {
   const config = {
@@ -117,13 +126,13 @@ import './pages/index.css'
     return placeCard
   }
 
-  closeImageButton.addEventListener("click", popupImage.close);
-  closeEditButton.addEventListener("click", popupEdit.close);
-  closeAvatarButton.addEventListener("click", popupAvatar.close);
-  closeButton.addEventListener("click", popupCard.close);
-  editButton.addEventListener("click", popupEdit.open);
-  userAvatar.addEventListener("click", popupAvatar.open);
-  addButton.addEventListener("click", popupCard.open);
+  closeImageButton.addEventListener("click", () =>popupImage.close());
+  closeEditButton.addEventListener("click", () =>popupEdit.close());
+  closeAvatarButton.addEventListener("click", () =>popupAvatar.close());
+  closeButton.addEventListener("click", () =>popupCard.close());
+  editButton.addEventListener("click", () => popupEdit.open())
+  userAvatar.addEventListener("click", () => popupAvatar.open());
+  addButton.addEventListener("click", () => popupCard.open());
   formAvatar.addEventListener("submit", saveNewAvatar);
   formNew.addEventListener("submit", sendNewCard);
   formEdit.addEventListener("submit", saveNewInformation);

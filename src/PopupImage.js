@@ -1,9 +1,10 @@
-class PopupImage extends Popup {
+import {Popup} from './Popup';
+export class PopupImage extends Popup {
   constructor(popupElement, img) {
     super(popupElement);
     this.img = img;
   }
-  open = (event) => {
+  open(event) {
     const eventTarget = event.target;
 
     if (eventTarget.classList.contains("place-card__image")) {
@@ -15,7 +16,7 @@ class PopupImage extends Popup {
       this.img.src = link;
     }
   }
-  close = () => {
+  close(){
     super.close();
   }
 }

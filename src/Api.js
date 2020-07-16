@@ -1,11 +1,11 @@
-class Api {
+export class Api {
 
     constructor(config) {
         this.url = config.url;
         this.headers = config.headers;
     }
 
-    getUserInfo = () => {
+    getUserInfo() {
         return fetch(`${this.url}/users/me`, {
             method: 'GET',
             headers: this.headers
@@ -15,7 +15,7 @@ class Api {
             })
     }
 
-    renderInitialCards = () => {
+    renderInitialCards()  {
         return fetch(`${this.url}/cards`, {
             method: 'GET',
             headers: this.headers
@@ -26,7 +26,7 @@ class Api {
     }
 
 
-    updateUserInfo = (name, job) => {
+    updateUserInfo(name, job) {
         return fetch(`${this.url}/users/me`, {
             method: 'PATCH',
             headers: this.headers,
@@ -40,7 +40,7 @@ class Api {
             })
     }
 
-    addNewCard = (title, link) => {
+    addNewCard(title, link) {
         return fetch(`${this.url}/cards`, {
             method: 'POST',
             headers: this.headers,
@@ -55,7 +55,7 @@ class Api {
 
     }
 
-    deleteCard = (cardId) => {
+    deleteCard(cardId) {
         return fetch(`${this.url}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this.headers
@@ -66,7 +66,7 @@ class Api {
 
     }
 
-    putLike = (cardId) => {
+    putLike(cardId){
         return fetch(`${this.url}/cards/like/${cardId}`, {
             method: 'PUT',
             headers: this.headers
@@ -77,7 +77,7 @@ class Api {
 
     }
 
-    deleteLike = (cardId) => {
+    deleteLike(cardId) {
         return fetch(`${this.url}/cards/like/${cardId}`, {
             method: 'DELETE',
             headers: this.headers
@@ -87,7 +87,7 @@ class Api {
             })
     }
 
-    sendNewAvatar = (avatarLink) => {
+    sendNewAvatar (avatarLink) {
         return fetch(`${this.url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this.headers,

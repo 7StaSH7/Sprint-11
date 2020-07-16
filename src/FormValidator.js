@@ -1,4 +1,4 @@
-class FormValidator {
+export class FormValidator {
   constructor(form, button, errors) {
     this.button = button;
     this.form = form;
@@ -25,7 +25,7 @@ class FormValidator {
     return input.checkValidity();
   }
 
-  checkInputValidity = (input) => {
+  checkInputValidity(input) {
     const error = this.form.querySelector(`.${input.name}-error`);
     const valid = this.isValidate(input);
     error.textContent = input.validationMessage;

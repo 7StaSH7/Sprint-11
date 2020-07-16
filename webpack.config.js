@@ -10,7 +10,7 @@ module.exports = {
     entry: { main: './src/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: './js/[name].[chunkhash].js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
@@ -39,7 +39,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
-                loader: 'file-loader?name=./vendor/fonts/[name].[ext]'
+                loader: 'file-loader?name=./vendor/[name].[ext]'
             }
         ]
     },
@@ -61,10 +61,10 @@ module.exports = {
             },
             canPrint: true
         }),
+        new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        new WebpackMd5Hash(),
     ]
 }
 
