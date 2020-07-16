@@ -11,16 +11,16 @@ import { UserInfo } from './UserInfo';
 
 (function () {
   const config = {
-    url: 'https://praktikum.tk/cohort11',
     headers: {
       authorization: 'b16b8885-3d1d-48d1-bc1a-f6964c7b092b',
       'Content-Type': 'application/json'
     }
   }
+  const url = NODE_ENV === "development" ? "http://praktikum.tk/cohort11": "https://praktikum.tk/cohort11";
   const formNew = document.forms.new;
   const formEdit = document.forms.edit;
   const formAvatar = document.forms.avatar;
-  const api = new Api(config);
+  const api = new Api(config, url);
   const { avatar } = formAvatar.elements;
   const { title, link } = formNew.elements;
   const { name, job } = formEdit.elements;

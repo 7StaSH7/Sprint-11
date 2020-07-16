@@ -1,7 +1,7 @@
 export class Api {
 
-    constructor(config) {
-        this.url = config.url;
+    constructor(config , url) {
+        this.url = url;
         this.headers = config.headers;
     }
 
