@@ -1,17 +1,28 @@
+import './style.css';
+import { Api } from './modules/Api';
+import { Card } from './modules/Card';
+import { CardList } from './modules/CardList'
+import { FormValidator } from './modules/FormValidator';
+import { PopupEdit } from './modules/PopupEdit';
+import { PopupAvatar } from './modules/PopupAvatar';
+import { PopupCard } from './modules/PopupCard';
+import { PopupImage } from './modules/PopupImage';
+import { UserInfo } from './modules/UserInfo';
+
 (function () {
   const config = {
-    url: 'https://praktikum.tk/cohort11',
     headers: {
       authorization: 'b16b8885-3d1d-48d1-bc1a-f6964c7b092b',
       'Content-Type': 'application/json'
     }
   }
+  const url = NODE_ENV === "development" ? "http://praktikum.tk/cohort11": "https://praktikum.tk/cohort11";
   const formNew = document.forms.new;
   const formEdit = document.forms.edit;
   const formAvatar = document.forms.avatar;
-  const api = new Api(config);
+  const api = new Api(config, url);
   const { avatar } = formAvatar.elements;
-  const { title, link } = formNew.elements; 
+  const { title, link } = formNew.elements;
   const { name, job } = formEdit.elements;
   const addButton = document.querySelector(".user-info__button");
   const addPlaceButton = document.querySelector(".popup__button");
@@ -115,19 +126,19 @@
     return placeCard
   }
 
-  closeImageButton.addEventListener("click", popupImage.close);
-  closeEditButton.addEventListener("click", popupEdit.close);
-  closeAvatarButton.addEventListener("click", popupAvatar.close);
-  closeButton.addEventListener("click", popupCard.close);
-  editButton.addEventListener("click", popupEdit.open);
-  userAvatar.addEventListener("click", popupAvatar.open);
-  addButton.addEventListener("click", popupCard.open);
+  closeImageButton.addEventListener("click", () =>popupImage.close());
+  closeEditButton.addEventListener("click", () =>popupEdit.close());
+  closeAvatarButton.addEventListener("click", () =>popupAvatar.close());
+  closeButton.addEventListener("click", () =>popupCard.close());
+  editButton.addEventListener("click", () => popupEdit.open())
+  userAvatar.addEventListener("click", () => popupAvatar.open());
+  addButton.addEventListener("click", () => popupCard.open());
   formAvatar.addEventListener("submit", saveNewAvatar);
   formNew.addEventListener("submit", sendNewCard);
   formEdit.addEventListener("submit", saveNewInformation);
 
   document.addEventListener("keydown", function (event) {
-    popupCard.closeEsc(event); 
+    popupCard.closeEsc(event);
     popupEdit.closeEsc(event);
     popupImage.closeEsc(event);
     popupAvatar.closeEsc(event);

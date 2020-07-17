@@ -1,4 +1,4 @@
-class Card {
+export class Card {
 
   constructor(title, link, popupImage, likes, api) {
     this.title = title;
@@ -8,7 +8,7 @@ class Card {
     this.api = api;
   }
 
-  like = () => {
+  like() {
     this.api.putLike(this.cardElement.id)
       .then(card => {
         if (!this.likeButton.classList.contains("place-card__like-icon_liked")) {
@@ -27,7 +27,7 @@ class Card {
       .catch(err => alert(err))
   }
 
-  remove = () => {
+  remove() {
     this.api.deleteCard(this.cardElement.id)
       .then(res => {
         if (res.message === "Пост удалён") {
@@ -38,7 +38,7 @@ class Card {
       .catch(err => alert(err))
   }
 
-  create = (cardOwnerId, myId, cardId, likes) => {
+  create(cardOwnerId, myId, cardId, likes) {
     const placeCard = document.createElement("div");
     placeCard.classList.add("place-card");
     placeCard.id = `${cardId}`
@@ -97,18 +97,18 @@ class Card {
   }
 
   setEventListeners() {
-    this.likeButton.addEventListener("click", this.like);
+    this.likeButton.addEventListener("click", () => this.like());
     this.deleteButton.addEventListener("click", () => {
       if (confirm("Вы действительно хотите удалить эту карточку?")) {
         this.remove();
       }
     });
-    this.image.addEventListener("click", this.popupImage.open);
+    this.image.addEventListener("click", (event) => this.popupImage.open(event));
   }
 
   removeEventListeners() {
-    this.likeButton.removeEventListener("click", this.like);
-    this.deleteButton.removeEventListener("click", this.remove);
-    this.image.removeEventListener("click", this.popupImage.open);
+    this.likeButton.removeEventListener("click", () => this.like());
+    this.deleteButton.removeEventListener("click", () => this.remove());
+    this.image.removeEventListener("click", () => this.popupImage.open());
   }
 }

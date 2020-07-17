@@ -1,4 +1,5 @@
-class PopupEdit extends Popup {
+import { Popup } from './Popup';
+export class PopupEdit extends Popup {
   constructor(popupElement, button, name, job, userName, userJob, userInfo) {
     super(popupElement, button);
     this.name = name;
@@ -7,7 +8,7 @@ class PopupEdit extends Popup {
     this.userJob = userJob;
     this.userInfo = userInfo;
   }
-  open = () => {
+  open() {
     super.open();
     this.name.setCustomValidity("");
     this.job.setCustomValidity("");
@@ -18,7 +19,7 @@ class PopupEdit extends Popup {
     this.button.classList.add("popup__button_active");
   }
 
-  close = () => {
+  close() {
     super.close();
   }
 }
